@@ -9,6 +9,10 @@ client.on('message', (msg) => {
 
     if (config.dictionary[command]) {
         msg.channel.sendMessage(config.dictionary[command]());
+    } else if (command === 'ls') {
+        const keys = Object.keys(config.dictionary);
+
+        msg.channel.sendMessage(keys.join(', '));
     }
 });
 
