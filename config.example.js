@@ -1,8 +1,8 @@
 module.exports = {
     token: 'PLACEHOLDER',
     dictionary: {
-        foo: () => {
-            return 'bar';
+        foo: (respond) => {
+            respond('bar');
         }
     }
 };
