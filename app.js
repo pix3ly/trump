@@ -5,16 +5,21 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('message', (msg) => {
-    const command = msg.content.replace('!', '');
+    let request = msg.content;
 
-    if (config.dictionary[command]) {
-        config.dictionary[command]((response) => {
-            msg.channel.sendMessage(response);
-        });
-    } else if (command === 'ls') {
-        const keys = Object.keys(config.dictionary);
+    if (request.substring(0, 1) === '!') {
+        request = request.substring(1);
 
-        msg.channel.sendMessage(keys.join(', '));
+        const parts = request.split(' ');
+        
+        const command = parts[0];
+        const arguments = parts.splice(1, parts.length - 1);
+
+        if (config.dictionary[command]) {
+            config.dictionary[command](arguments, (response) => {
+                msg.channel.sendMessage(response);
+            });
+        }
     }
 });
 

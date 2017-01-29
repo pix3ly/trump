@@ -1,8 +1,8 @@
 module.exports = {
     token: 'PLACEHOLDER',
     dictionary: {
-        foo: (respond) => {
-            respond('bar');
+        dice: (arguments, respond) => {
+            respond(Math.floor((Math.random() * arguments[0]) + 1));
         }
     }
 };
