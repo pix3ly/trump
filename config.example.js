@@ -2,7 +2,13 @@ module.exports = {
     token: 'PLACEHOLDER',
     dictionary: {
         dice: (arguments, respond) => {
-            respond([Math.floor((Math.random() * arguments[0]) + 1)]);
+            let cap = 6;
+
+            if (arguments[0]) {
+                cap = arguments[0];
+            }
+
+            respond([Math.floor((Math.random() * cap) + 1)]);
         }
     }
 };
