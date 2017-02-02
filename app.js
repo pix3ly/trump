@@ -11,13 +11,15 @@ client.on('message', (msg) => {
         request = request.substring(1);
 
         const parts = request.split(' ');
-        
+
         const command = parts[0];
         const arguments = parts.splice(1, parts.length - 1);
 
         if (config.dictionary[command]) {
-            config.dictionary[command](arguments, (response) => {
-                msg.channel.sendMessage(response);
+            config.dictionary[command](arguments, (responses) => {
+                responses.forEach((response) => {
+                    msg.channel.sendMessage(response);
+                });
             });
         }
     }
