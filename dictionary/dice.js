@@ -1,4 +1,4 @@
-module.exports = (arguments, respond) => {
+module.exports = (config, arguments, respond) => {
     let cap = 6;
 
     if (arguments[0]) {

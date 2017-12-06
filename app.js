@@ -16,7 +16,7 @@ client.on('message', (msg) => {
         const arguments = parts.splice(1, parts.length - 1);
 
         if (config.dictionary[command]) {
-            config.dictionary[command](arguments, (responses) => {
+            config.dictionary[command](config, arguments, (responses) => {
                 responses.forEach((response) => {
                     msg.channel.sendMessage(response);
                 });
