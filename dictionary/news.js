@@ -10,7 +10,7 @@ module.exports = (config, arguments, respond) => {
             let articles = ''
 
             result.rss.channel[0].item.forEach(item => {
-                articles += item.title + ' · ' + moment(item.pubDate, 'ddd, DD MMM YYYY HH:mm:ss').format('HH:mm') + ' · <' + item.link + '>\n\n'
+                articles += item.title + ' · ' + moment(item.pubDate, 'ddd, DD MMM YYYY HH:mm:ss').format('HH:mm') + ' · <' + item.guid[0]._ + '>\n\n'
             })
 
             respond([articles])
