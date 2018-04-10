@@ -17,12 +17,13 @@ module.exports = (config, arguments, respond) => {
             if (!somethingHasGoneWrong) {
                 var $ = cheerio.load(body)
 
+                var name = $('.company__name').text()
                 var price = $('.intraday__price .value').text()
 
-                if (!price) {
+                if (!name || !price) {
                     somethingHasGoneWrong = true
                 } else {
-                    respond([String(target).toUpperCase() + ' is currently $' + price])
+                    respond([name + ' (' + String(target).toUpperCase() + ') is currently $' + price])
                 }
             }
 
