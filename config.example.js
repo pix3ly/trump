@@ -3,7 +3,8 @@ module.exports = {
     dictionary: {
         dice: require('./dictionary/dice'),
         weather: require('./dictionary/weather'),
-        stock: require('./dictionary/stock')
+        stock: require('./dictionary/stock'),
+        crypto: require('./dictionary/crypto')
     },
     feeds: [
         {
