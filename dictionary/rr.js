@@ -17,9 +17,17 @@ module.exports = (config, arguments, respond) => {
             } else {
                 let a = randomThread.data.preview.images[0].source.url
 
+                const domain = randomThread.data.domain
                 const url = randomThread.data.url
-                if (url.substr(url.length - 4) == 'gifv') {
-                    a = url
+
+                if (domain == 'imgur.com' || domain == 'i.imgur.com') {
+                    const extension = url.substr(url.length - 4)
+
+                    if (extension == 'gifv' || extension == 'gif') {
+                        a = url
+                    }
+                } else if (domain == 'gfycat.com') {
+                    a = randomThread.data.preview.images[0].variants.gif.source.url
                 }
 
                 respond([a])
