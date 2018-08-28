@@ -5,7 +5,8 @@ module.exports = {
         weather: require('./dictionary/weather'),
         stock: require('./dictionary/stock'),
         crypto: require('./dictionary/crypto'),
-        rr: require('./dictionary/rr')
+        rr: require('./dictionary/rr'),
+        lenny: require('./dictionary/lenny')
     },
     feeds: [
         {
