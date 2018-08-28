@@ -15,7 +15,13 @@ module.exports = (config, arguments, respond) => {
             if (randomThread == null) {
                 respond(['Couldn\'t find any post with image'])
             } else {
-                respond([randomThread.data.preview.images[0].source.url])
+                let a = randomThread.data.preview.images[0].source.url
+
+                if (randomThread.data.preview.images[0].variants.gif.source) {
+                    a = randomThread.data.preview.images[0].variants.gif.source.url
+                }
+
+                respond([a])
             }
         })
     }
