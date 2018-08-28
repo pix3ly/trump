@@ -17,8 +17,9 @@ module.exports = (config, arguments, respond) => {
             } else {
                 let a = randomThread.data.preview.images[0].source.url
 
-                if (randomThread.data.preview.images[0].variants.gif.source) {
-                    a = randomThread.data.preview.images[0].variants.gif.source.url
+                const url = randomThread.data.url
+                if (url.substr(url.length - 4) == 'gifv') {
+                    a = url
                 }
 
                 respond([a])
